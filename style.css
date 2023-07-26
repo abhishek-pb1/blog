@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+
+:root {
+    --dark-color : #15171a;
+    --light-color : #ffffff;
+    --dark-hover : #444548;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--light-color);
+    color: var(--dark-color);
+    font-size: 1rem;
+    line-height: 1.6rem;
+}
+
+/* Containers */
+.container-1440px {
+    max-width: 1440px;
+    margin: auto;
+}
+
+.container-720px {
+    max-width: 720px;
+    margin: auto;
+}
+
+/* Tags */
+a {
+    text-decoration: none;
+    color: var(--dark-color);
+}
+
+a:hover {
+    color: var(--dark-hover);
+    transition: color 0.2s ease-in ;
+}
+
+
+
+/* Navbar */
+.logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+.navbar .container-1440px {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* position: relative; To position the hamburger menu */
+}
+
+.navbar {
+    padding: 2rem;
+    position: relative;
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 2rem;
+}
+
+.navbar button {
+    background-color: var(--light-color);
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+
+.mobile-nav-toggler {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 2rem;
+    display: inline-block;
+    display: none;
+}
+
+
+/* Tablets */
+@media (max-width: 900px) {
+
+    .logo { align-self: flex-start;}
+    .mobile-nav-toggler { display: inline-block;}
+    .navbar .container-1440px { flex-direction: column;}
+    .nav-menu { 
+        flex-direction: column;
+        max-height: 0;
+        visibility: hidden;
+        transition: all 1s ease;
+    }
+
+    .nav-menu[data-visible = "true"] {
+        max-height: 100vh;
+        visibility: visible;
+        transition: all 1s ease;
+    }
+
+    
+}
